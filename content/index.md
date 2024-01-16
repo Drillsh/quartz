@@ -2,6 +2,15 @@
 title: "Home"
 ---
 
+안녕하세요!
+이곳은 제가 가꾸는 지식의 정원입니다.
+잡다한 것들을 가져다 놓습니다.
+
+- [[Infinity Drawer]]
+- [[Book]]
+- [[Watching]
+- [[Daily Note]]]
+
 ## Index
 ---
 \#[[Infinity Drawer#^k61eep|Second Brain]]  \#[[Infinity Drawer#^w35ooj|글쓰기]]    \#[[Infinity Drawer#^j3rwco|노화]]  
