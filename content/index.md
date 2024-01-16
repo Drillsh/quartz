@@ -8,8 +8,8 @@ title: "Home"
 
 - [[Infinity Drawer]]
 - [[Book]]
-- [[Watching]
-- [[Daily Note]]]
+- [[Watching]]
+- [[Daily Note]]
 
 ## Index
 ---
