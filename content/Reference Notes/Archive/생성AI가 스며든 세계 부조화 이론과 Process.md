@@ -1,5 +1,7 @@
 ---
 share: true
+created: 2022-12-29 22:13
+updated: 2024-01-16 16:58
 ---
 
 # 생성AI가 스며든 세계: 부조화 이론과 Process
