@@ -1,0 +1,137 @@
+---
+share: true
+---
+
+## Overview
+---
+cdn: 클라우드 프론트 = 팝 = 캐시서버
+
+## AWS Network
+---
+- VPC : Virtual Private Cloud
+	- 물리 하드웨어 위에 가상네트워크 정의
+	- 완전한 네트워크 제어 가능
+	- 유동, 고정 IP 할당 가능, BYOIP
+	- S3와 DynamoDB는 리전 서비스 영역. VPC 밖
+	- IP 주소의 범위
+		- CIDR 블록 설정 Classless Inter-Domain Routing
+		- 한번 정하면 바꿀 수 없다. 중복 금지 권고
+	- 서브넷
+		- VPC를 나눠서 씀 : 용도에 따라
+		- 24비트 이상 권고
+		- 몇개 사용할 것인가?
+			- 2개 = 1비트.. 256개 = 8비트
+- 라우팅과 인터넷 통신 개념
+	- 아파트 단지 = VPC
+	- 메인 게이트 = 인터넷 게이트웨이
+	- 동 = 서브넷
+		- 퍼블릭 서브넷
+			- 인터넷 연결된. 외부와 통신이 됨
+			- 모르는 애는 저기로 보내 0.0.0.0 => 인터넷
+			- NAT gateway *
+				- EIP로 주소를 바꿔줘. 외부에서 아는 주소로
+		- 프라이빗 서브넷
+			- 프라이빗 라우팅 테이블
+			- 모르는애는 버려
+	- 안내판 = 라우팅 테이블
+		- 로컬 통신. 16비트라면 앞 두개만 비교해서 타겟을 확인
+		- 0.0.0.0/0 = 모를때. 내 네트워크가 아닌거 같애
+	- DNS와 DHCP
+		- DHCP를 통한 IP 할당
+	- ENI(Elastic Network Interface)
+		- 가상의 네트워크 카드
+		- 서브넷 안에 생성됨
+		- 고유의 MAC Adress 가짐
+		- IP 주소 가짐
+	- VPC 엑세스 제어: NACL과 보안 그룹
+		- VPC에서 엑세스를 제어하는 방법
+		- NetworkACL은 서브넷 앞에서 동작한다*
+		- 보안그룹은 ENI (인스턴스) 단위로 동작한다
+		- ACL -> 보안그룹 -> 인스턴스
+	- 운영환경을 위한 VPC 디자인
+		- Load balancer : ENI를 여러개 갖고 있어
+	- VPC 연결 - 기본
+		- 기본적으로 4개 VPC 만들수 있다
+		- 게이트웨이 만들면 연결!
+		- 이지만 같은 서비스잖아. Peering 으로 연결함
+		- Peering 한계
+			- 건너건너 연결은 안돼 - 전이적 라우팅 불가*
+		- Transit Gateway. 그럼 라우터를 두자
+			- 허브 앤 스포크 구조
+			- DX, VPN등 다양한 연결 지원
+	- VPC Endpint - 게이트웨이 타입
+		- 이걸로 S3, DynamoDB 등과 내부망 통신. 같은 곳 서비스 니까
+		- 내 VPC 안에 굳이 만들긴 해야함
+		- 인터페이스 타입 (AWS PrivateLink)
+			- 내부망 타고싶다.
+			- ENI가 만들어져서 붙여줌.
+			- S3 같은것도 사용 가능
+- EC2 개요
+	- 클라우드에 위치한 가상 서버 인스턴스
+	- EC2 호스트 가상화
+	- Elastic Compute Cloud
+	- AMI (Amazon Machine Image) : 운영체제
+		- S3에 저장되어 있다
+		- EC2에 설치해서 런칭
+		- 커스텀하여 저장해둘 수 있다.
+		- 인스턴스 스토어
+			- 가상서버에 물려있는 메모리. 휘발성
+		- EBS (Elastic Block Store)
+			- 영구 스토리지
+			- 인스턴스 수명 관계없이 지속
+	- EC2 인스턴스 수명 주기
+		- 1. AMI launch 
+		- 2. Pending
+		- 3. Running < 여기부터 과금
+			- 1) 정지
+			- 2) 종료
+			- 3) 리부트
+- 인스턴스 유형
+	- 600개+
+	- 이름 지정 규칙 (c7gn.xlarge)
+		- 1. 인스턴스 패밀리 : c
+		- 2. 인스턴스 세대 : 7
+		- 3. 추가기능 : gn
+		- 4. 인스턴스 크기 : xlarge
+- 인스턴스 선택
+	- 의사결정 트리 
+	- 성능 테스트
+	- 제공 툴
+		- Cost Explorer
+			- 14일 기록 기반
+			- 동일 인스턴스 패밀리 내의 적정 크기 권장
+		- AWS Compute Optimizer
+			- 머신러닝 기반
+			- 최적 구성 권장
+	- 비용 및 용량 최적화
+		- 플랜 조합 가능
+- 컴퓨팅 관련 서비스
+	- Elastic Load Balancing
+		- 트래픽을 여러 인스턴스에게 분배
+		- Option
+			- Application
+				- HTTP, HTTPS
+			- Network
+				- TCP, UDP, TLS
+	- Auto Scaling
+		- 변화하는 수요에 동적으로 대응하고 비용을 최적화
+	- User data
+	- 시작 탬플릿
+	- Instance Connect
+	- CloudWatch
+		- 5분단위 -> 1분단위 : 과금
+- 데이터베이스
+	- 데이터 트렌드
+- 스토리지
+	- 스토리지 타입
+		- 오브젝트
+			- S3
+		- 블록
+			- EBS
+		- 파일
+	- 어떤기능?
+	- 어떨때 사용?
+
+71cc-0e1784-70
+
+
