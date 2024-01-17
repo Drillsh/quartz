@@ -8,9 +8,9 @@ title: "Home"
 
 
 - [[Infinity Drawer]]
+- [[Diary]]
 - [[Book]]
 - [[Watching]]
-- [[Daily Note]]
 
 ## Infinity Drawer Index
 ---
