@@ -12,7 +12,7 @@ title: "Home"
 - [[Watching]]
 - [[Daily Note]]
 
-## Index
+## Infinity Drawer Index
 ---
 - [[Infinity Drawer#^k61eep|Second Brain]]
 - [[Infinity Drawer#^w35ooj|글쓰기]]    

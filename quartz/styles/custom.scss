@@ -46,9 +46,16 @@
         }
         }
     }
+    
 .center{
     & li,p {
       line-height: 2.6rem;
     }
+
+    & .section-li{
+      & h3 {
+        text-align: center;
+      }
+    }   
 }
     
