@@ -46,7 +46,7 @@
         }
         }
     }
-    
+
 .center{
     & li,p {
       line-height: 2.6rem;
@@ -57,5 +57,9 @@
         text-align: center;
       }
     }   
+}
+
+mark {
+  background-color:var(--tertiary);
 }
     
