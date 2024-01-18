@@ -7,7 +7,7 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: 'google', tagId: 'G-D5GDVPH6S1'
     },
     baseUrl: "drillgarden.netlify.app",
     ignorePatterns: ["private", "templates", ".obsidian"],
