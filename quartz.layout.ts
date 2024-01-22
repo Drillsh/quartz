@@ -37,11 +37,7 @@ export const defaultContentPageLayout: PageLayout = {
         } else if (!f1.dates?.modified && f2.dates?.modified) {
           return 1
         }
-    
-        // otherwise, sort lexographically by title
-        const f1Title = f1.frontmatter?.title.toLowerCase() ?? ""
-        const f2Title = f2.frontmatter?.title.toLowerCase() ?? ""
-        return f1Title.localeCompare(f2Title)
+        return 0;
       },
       linkToMore: "Infinity-Drawer/" as SimpleSlug,
     })),
