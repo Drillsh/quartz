@@ -8,7 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   footer: Component.Footer({
     links: {
-      Twitter: "https://twitter.com/drill_sizeS",
+      𝕏: "https://twitter.com/drill_sizeS",
     },
   }),
 }
@@ -30,16 +30,6 @@ export const defaultContentPageLayout: PageLayout = {
       title: "Recently Note",
       limit: 10,
       filter: (f) => f.slug!.startsWith("Infinity-Drawer/") && !f.slug!.startsWith("Reference-Notes/"),
-      sort:(f1, f2) => {
-        if (f1.dates?.modified && !f2.dates?.modified) {
-          // prioritize files with dates
-          return -1
-        } else if (!f1.dates?.modified && f2.dates?.modified) {
-          return 1
-        }
-        return 0;
-      },
-      linkToMore: "Infinity-Drawer/" as SimpleSlug,
     })),
   ],
   right: [
