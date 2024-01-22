@@ -11,7 +11,7 @@ const config: QuartzConfig = {
     },
     baseUrl: "drillgarden.netlify.app",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "created",
+    defaultDateType: "modified",
     theme: {
       typography: {
         header: "Nanum Gothic Coding",
