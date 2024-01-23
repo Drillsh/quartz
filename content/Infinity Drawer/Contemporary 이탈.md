@@ -32,4 +32,4 @@ updated: 2024-01-17 12:57
 
 
 ## Links
-- [[Tweet from J. K-IM (2022-10-20 22-22-43)#^9eee89 | [Tweet] 기타를 연습하던 아저씨]]
+- [[Tweet from J. K-IM#^9eee89 | [Tweet] 기타를 연습하던 아저씨]]
