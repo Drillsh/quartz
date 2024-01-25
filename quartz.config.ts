@@ -14,8 +14,8 @@ const config: QuartzConfig = {
     defaultDateType: "modified",
     theme: {
       typography: {
-        header: "Nanum Gothic Coding",
-        body: "Nanum Gothic Coding",
+        header: "Gowun Dodum",
+        body: "Gowun Dodum",
         code: "Nanum Gothic Coding",
       },
       colors: {

@@ -15,7 +15,7 @@ title: "Entrance"
 - [[Infinity Drawer]]  
    - 모든 메모가 있습니다. 관련 있는 것들끼리 뭉쳐 자랍니다.  
    - [무한서랍 방식](https://brunch.co.kr/@labica/67)으로 관리합니다.
-- [[Diary]]
+- [[2024_Diary|Diary]]
 - [[Book]]
 - [[Watching]]
 
