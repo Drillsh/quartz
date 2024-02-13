@@ -29,7 +29,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.RecentNotes({
       title: "Recently Note",
       limit: 10,
-      filter: (f) => f.slug!.startsWith("Infinity-Drawer/") && !f.slug!.startsWith("Reference-Notes/"),
+      filter: (f) => !f.slug!.startsWith("Reference-Notes/"),
     })),
   ],
   right: [
